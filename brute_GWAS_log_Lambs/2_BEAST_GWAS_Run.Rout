@@ -1,0 +1,440 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> load("BEAST_GWAS.RData")
+> 
+> library(GenABEL)
+Loading required package: MASS
+Loading required package: GenABEL.data
+> 
+> for(i in seq(1, nsnps(genabeldata), 100)){
++   
++   x <- readLines("2_BEAST_GWAS_Stem.R")
++   writeLines(c(paste0("startsnp = ", i), x), paste0("GWAS_", i, ".R"))
++   
++   writeLines(paste0("#!/bin/sh
++ #$ -cwd
++ #$ -l h_rt=01:00:00
++ #$ -V
++ #$ -l h_vmem=5200M
++                     
++ . /etc/profile.d/modules.sh
++ module load R
++                     
++ R CMD BATCH GWAS_", i, ".R"),
++ paste0("GWAS_", i, ".sh"))
++   
++   system(paste0("qsub GWAS_", i, ".sh"))
++ }
+Your job 192116 ("GWAS_1.sh") has been submitted
+Your job 192117 ("GWAS_101.sh") has been submitted
+Your job 192118 ("GWAS_201.sh") has been submitted
+Your job 192119 ("GWAS_301.sh") has been submitted
+Your job 192120 ("GWAS_401.sh") has been submitted
+Your job 192121 ("GWAS_501.sh") has been submitted
+Your job 192122 ("GWAS_601.sh") has been submitted
+Your job 192123 ("GWAS_701.sh") has been submitted
+Your job 192124 ("GWAS_801.sh") has been submitted
+Your job 192125 ("GWAS_901.sh") has been submitted
+Your job 192126 ("GWAS_1001.sh") has been submitted
+Your job 192127 ("GWAS_1101.sh") has been submitted
+Your job 192128 ("GWAS_1201.sh") has been submitted
+Your job 192129 ("GWAS_1301.sh") has been submitted
+Your job 192130 ("GWAS_1401.sh") has been submitted
+Your job 192131 ("GWAS_1501.sh") has been submitted
+Your job 192132 ("GWAS_1601.sh") has been submitted
+Your job 192133 ("GWAS_1701.sh") has been submitted
+Your job 192134 ("GWAS_1801.sh") has been submitted
+Your job 192135 ("GWAS_1901.sh") has been submitted
+Your job 192136 ("GWAS_2001.sh") has been submitted
+Your job 192137 ("GWAS_2101.sh") has been submitted
+Your job 192138 ("GWAS_2201.sh") has been submitted
+Your job 192139 ("GWAS_2301.sh") has been submitted
+Your job 192140 ("GWAS_2401.sh") has been submitted
+Your job 192141 ("GWAS_2501.sh") has been submitted
+Your job 192142 ("GWAS_2601.sh") has been submitted
+Your job 192143 ("GWAS_2701.sh") has been submitted
+Your job 192144 ("GWAS_2801.sh") has been submitted
+Your job 192145 ("GWAS_2901.sh") has been submitted
+Your job 192146 ("GWAS_3001.sh") has been submitted
+Your job 192147 ("GWAS_3101.sh") has been submitted
+Your job 192148 ("GWAS_3201.sh") has been submitted
+Your job 192149 ("GWAS_3301.sh") has been submitted
+Your job 192150 ("GWAS_3401.sh") has been submitted
+Your job 192151 ("GWAS_3501.sh") has been submitted
+Your job 192152 ("GWAS_3601.sh") has been submitted
+Your job 192153 ("GWAS_3701.sh") has been submitted
+Your job 192154 ("GWAS_3801.sh") has been submitted
+Your job 192155 ("GWAS_3901.sh") has been submitted
+Your job 192156 ("GWAS_4001.sh") has been submitted
+Your job 192157 ("GWAS_4101.sh") has been submitted
+Your job 192158 ("GWAS_4201.sh") has been submitted
+Your job 192159 ("GWAS_4301.sh") has been submitted
+Your job 192160 ("GWAS_4401.sh") has been submitted
+Your job 192161 ("GWAS_4501.sh") has been submitted
+Your job 192162 ("GWAS_4601.sh") has been submitted
+Your job 192163 ("GWAS_4701.sh") has been submitted
+Your job 192164 ("GWAS_4801.sh") has been submitted
+Your job 192165 ("GWAS_4901.sh") has been submitted
+Your job 192166 ("GWAS_5001.sh") has been submitted
+Your job 192167 ("GWAS_5101.sh") has been submitted
+Your job 192168 ("GWAS_5201.sh") has been submitted
+Your job 192169 ("GWAS_5301.sh") has been submitted
+Your job 192170 ("GWAS_5401.sh") has been submitted
+Your job 192171 ("GWAS_5501.sh") has been submitted
+Your job 192172 ("GWAS_5601.sh") has been submitted
+Your job 192173 ("GWAS_5701.sh") has been submitted
+Your job 192174 ("GWAS_5801.sh") has been submitted
+Your job 192175 ("GWAS_5901.sh") has been submitted
+Your job 192176 ("GWAS_6001.sh") has been submitted
+Your job 192177 ("GWAS_6101.sh") has been submitted
+Your job 192178 ("GWAS_6201.sh") has been submitted
+Your job 192179 ("GWAS_6301.sh") has been submitted
+Your job 192180 ("GWAS_6401.sh") has been submitted
+Your job 192181 ("GWAS_6501.sh") has been submitted
+Your job 192182 ("GWAS_6601.sh") has been submitted
+Your job 192183 ("GWAS_6701.sh") has been submitted
+Your job 192184 ("GWAS_6801.sh") has been submitted
+Your job 192185 ("GWAS_6901.sh") has been submitted
+Your job 192186 ("GWAS_7001.sh") has been submitted
+Your job 192187 ("GWAS_7101.sh") has been submitted
+Your job 192188 ("GWAS_7201.sh") has been submitted
+Your job 192189 ("GWAS_7301.sh") has been submitted
+Your job 192190 ("GWAS_7401.sh") has been submitted
+Your job 192191 ("GWAS_7501.sh") has been submitted
+Your job 192192 ("GWAS_7601.sh") has been submitted
+Your job 192193 ("GWAS_7701.sh") has been submitted
+Your job 192194 ("GWAS_7801.sh") has been submitted
+Your job 192195 ("GWAS_7901.sh") has been submitted
+Your job 192196 ("GWAS_8001.sh") has been submitted
+Your job 192197 ("GWAS_8101.sh") has been submitted
+Your job 192198 ("GWAS_8201.sh") has been submitted
+Your job 192199 ("GWAS_8301.sh") has been submitted
+Your job 192200 ("GWAS_8401.sh") has been submitted
+Your job 192201 ("GWAS_8501.sh") has been submitted
+Your job 192202 ("GWAS_8601.sh") has been submitted
+Your job 192203 ("GWAS_8701.sh") has been submitted
+Your job 192204 ("GWAS_8801.sh") has been submitted
+Your job 192205 ("GWAS_8901.sh") has been submitted
+Your job 192206 ("GWAS_9001.sh") has been submitted
+Your job 192207 ("GWAS_9101.sh") has been submitted
+Your job 192208 ("GWAS_9201.sh") has been submitted
+Your job 192209 ("GWAS_9301.sh") has been submitted
+Your job 192210 ("GWAS_9401.sh") has been submitted
+Your job 192211 ("GWAS_9501.sh") has been submitted
+Your job 192212 ("GWAS_9601.sh") has been submitted
+Your job 192213 ("GWAS_9701.sh") has been submitted
+Your job 192214 ("GWAS_9801.sh") has been submitted
+Your job 192215 ("GWAS_9901.sh") has been submitted
+Your job 192216 ("GWAS_10001.sh") has been submitted
+Your job 192217 ("GWAS_10101.sh") has been submitted
+Your job 192218 ("GWAS_10201.sh") has been submitted
+Your job 192219 ("GWAS_10301.sh") has been submitted
+Your job 192220 ("GWAS_10401.sh") has been submitted
+Your job 192221 ("GWAS_10501.sh") has been submitted
+Your job 192222 ("GWAS_10601.sh") has been submitted
+Your job 192223 ("GWAS_10701.sh") has been submitted
+Your job 192224 ("GWAS_10801.sh") has been submitted
+Your job 192225 ("GWAS_10901.sh") has been submitted
+Your job 192226 ("GWAS_11001.sh") has been submitted
+Your job 192227 ("GWAS_11101.sh") has been submitted
+Your job 192228 ("GWAS_11201.sh") has been submitted
+Your job 192229 ("GWAS_11301.sh") has been submitted
+Your job 192230 ("GWAS_11401.sh") has been submitted
+Your job 192231 ("GWAS_11501.sh") has been submitted
+Your job 192232 ("GWAS_11601.sh") has been submitted
+Your job 192233 ("GWAS_11701.sh") has been submitted
+Your job 192234 ("GWAS_11801.sh") has been submitted
+Your job 192235 ("GWAS_11901.sh") has been submitted
+Your job 192236 ("GWAS_12001.sh") has been submitted
+Your job 192237 ("GWAS_12101.sh") has been submitted
+Your job 192238 ("GWAS_12201.sh") has been submitted
+Your job 192239 ("GWAS_12301.sh") has been submitted
+Your job 192240 ("GWAS_12401.sh") has been submitted
+Your job 192241 ("GWAS_12501.sh") has been submitted
+Your job 192242 ("GWAS_12601.sh") has been submitted
+Your job 192243 ("GWAS_12701.sh") has been submitted
+Your job 192244 ("GWAS_12801.sh") has been submitted
+Your job 192245 ("GWAS_12901.sh") has been submitted
+Your job 192246 ("GWAS_13001.sh") has been submitted
+Your job 192247 ("GWAS_13101.sh") has been submitted
+Your job 192248 ("GWAS_13201.sh") has been submitted
+Your job 192249 ("GWAS_13301.sh") has been submitted
+Your job 192250 ("GWAS_13401.sh") has been submitted
+Your job 192251 ("GWAS_13501.sh") has been submitted
+Your job 192252 ("GWAS_13601.sh") has been submitted
+Your job 192253 ("GWAS_13701.sh") has been submitted
+Your job 192254 ("GWAS_13801.sh") has been submitted
+Your job 192255 ("GWAS_13901.sh") has been submitted
+Your job 192256 ("GWAS_14001.sh") has been submitted
+Your job 192257 ("GWAS_14101.sh") has been submitted
+Your job 192258 ("GWAS_14201.sh") has been submitted
+Your job 192259 ("GWAS_14301.sh") has been submitted
+Your job 192260 ("GWAS_14401.sh") has been submitted
+Your job 192261 ("GWAS_14501.sh") has been submitted
+Your job 192262 ("GWAS_14601.sh") has been submitted
+Your job 192263 ("GWAS_14701.sh") has been submitted
+Your job 192264 ("GWAS_14801.sh") has been submitted
+Your job 192265 ("GWAS_14901.sh") has been submitted
+Your job 192266 ("GWAS_15001.sh") has been submitted
+Your job 192267 ("GWAS_15101.sh") has been submitted
+Your job 192268 ("GWAS_15201.sh") has been submitted
+Your job 192269 ("GWAS_15301.sh") has been submitted
+Your job 192270 ("GWAS_15401.sh") has been submitted
+Your job 192271 ("GWAS_15501.sh") has been submitted
+Your job 192272 ("GWAS_15601.sh") has been submitted
+Your job 192273 ("GWAS_15701.sh") has been submitted
+Your job 192274 ("GWAS_15801.sh") has been submitted
+Your job 192275 ("GWAS_15901.sh") has been submitted
+Your job 192276 ("GWAS_16001.sh") has been submitted
+Your job 192277 ("GWAS_16101.sh") has been submitted
+Your job 192278 ("GWAS_16201.sh") has been submitted
+Your job 192279 ("GWAS_16301.sh") has been submitted
+Your job 192280 ("GWAS_16401.sh") has been submitted
+Your job 192281 ("GWAS_16501.sh") has been submitted
+Your job 192282 ("GWAS_16601.sh") has been submitted
+Your job 192283 ("GWAS_16701.sh") has been submitted
+Your job 192284 ("GWAS_16801.sh") has been submitted
+Your job 192285 ("GWAS_16901.sh") has been submitted
+Your job 192286 ("GWAS_17001.sh") has been submitted
+Your job 192287 ("GWAS_17101.sh") has been submitted
+Your job 192288 ("GWAS_17201.sh") has been submitted
+Your job 192289 ("GWAS_17301.sh") has been submitted
+Your job 192290 ("GWAS_17401.sh") has been submitted
+Your job 192291 ("GWAS_17501.sh") has been submitted
+Your job 192292 ("GWAS_17601.sh") has been submitted
+Your job 192293 ("GWAS_17701.sh") has been submitted
+Your job 192294 ("GWAS_17801.sh") has been submitted
+Your job 192295 ("GWAS_17901.sh") has been submitted
+Your job 192296 ("GWAS_18001.sh") has been submitted
+Your job 192297 ("GWAS_18101.sh") has been submitted
+Your job 192298 ("GWAS_18201.sh") has been submitted
+Your job 192299 ("GWAS_18301.sh") has been submitted
+Your job 192300 ("GWAS_18401.sh") has been submitted
+Your job 192301 ("GWAS_18501.sh") has been submitted
+Your job 192302 ("GWAS_18601.sh") has been submitted
+Your job 192303 ("GWAS_18701.sh") has been submitted
+Your job 192304 ("GWAS_18801.sh") has been submitted
+Your job 192305 ("GWAS_18901.sh") has been submitted
+Your job 192306 ("GWAS_19001.sh") has been submitted
+Your job 192307 ("GWAS_19101.sh") has been submitted
+Your job 192308 ("GWAS_19201.sh") has been submitted
+Your job 192309 ("GWAS_19301.sh") has been submitted
+Your job 192310 ("GWAS_19401.sh") has been submitted
+Your job 192311 ("GWAS_19501.sh") has been submitted
+Your job 192312 ("GWAS_19601.sh") has been submitted
+Your job 192313 ("GWAS_19701.sh") has been submitted
+Your job 192314 ("GWAS_19801.sh") has been submitted
+Your job 192315 ("GWAS_19901.sh") has been submitted
+Your job 192316 ("GWAS_20001.sh") has been submitted
+Your job 192317 ("GWAS_20101.sh") has been submitted
+Your job 192318 ("GWAS_20201.sh") has been submitted
+Your job 192319 ("GWAS_20301.sh") has been submitted
+Your job 192320 ("GWAS_20401.sh") has been submitted
+Your job 192321 ("GWAS_20501.sh") has been submitted
+Your job 192322 ("GWAS_20601.sh") has been submitted
+Your job 192323 ("GWAS_20701.sh") has been submitted
+Your job 192324 ("GWAS_20801.sh") has been submitted
+Your job 192325 ("GWAS_20901.sh") has been submitted
+Your job 192326 ("GWAS_21001.sh") has been submitted
+Your job 192327 ("GWAS_21101.sh") has been submitted
+Your job 192328 ("GWAS_21201.sh") has been submitted
+Your job 192329 ("GWAS_21301.sh") has been submitted
+Your job 192330 ("GWAS_21401.sh") has been submitted
+Your job 192331 ("GWAS_21501.sh") has been submitted
+Your job 192332 ("GWAS_21601.sh") has been submitted
+Your job 192333 ("GWAS_21701.sh") has been submitted
+Your job 192334 ("GWAS_21801.sh") has been submitted
+Your job 192335 ("GWAS_21901.sh") has been submitted
+Your job 192336 ("GWAS_22001.sh") has been submitted
+Your job 192337 ("GWAS_22101.sh") has been submitted
+Your job 192338 ("GWAS_22201.sh") has been submitted
+Your job 192339 ("GWAS_22301.sh") has been submitted
+Your job 192340 ("GWAS_22401.sh") has been submitted
+Your job 192341 ("GWAS_22501.sh") has been submitted
+Your job 192342 ("GWAS_22601.sh") has been submitted
+Your job 192343 ("GWAS_22701.sh") has been submitted
+Your job 192344 ("GWAS_22801.sh") has been submitted
+Your job 192345 ("GWAS_22901.sh") has been submitted
+Your job 192346 ("GWAS_23001.sh") has been submitted
+Your job 192347 ("GWAS_23101.sh") has been submitted
+Your job 192348 ("GWAS_23201.sh") has been submitted
+Your job 192349 ("GWAS_23301.sh") has been submitted
+Your job 192350 ("GWAS_23401.sh") has been submitted
+Your job 192351 ("GWAS_23501.sh") has been submitted
+Your job 192352 ("GWAS_23601.sh") has been submitted
+Your job 192353 ("GWAS_23701.sh") has been submitted
+Your job 192354 ("GWAS_23801.sh") has been submitted
+Your job 192355 ("GWAS_23901.sh") has been submitted
+Your job 192356 ("GWAS_24001.sh") has been submitted
+Your job 192357 ("GWAS_24101.sh") has been submitted
+Your job 192358 ("GWAS_24201.sh") has been submitted
+Your job 192359 ("GWAS_24301.sh") has been submitted
+Your job 192360 ("GWAS_24401.sh") has been submitted
+Your job 192361 ("GWAS_24501.sh") has been submitted
+Your job 192362 ("GWAS_24601.sh") has been submitted
+Your job 192363 ("GWAS_24701.sh") has been submitted
+Your job 192364 ("GWAS_24801.sh") has been submitted
+Your job 192365 ("GWAS_24901.sh") has been submitted
+Your job 192366 ("GWAS_25001.sh") has been submitted
+Your job 192367 ("GWAS_25101.sh") has been submitted
+Your job 192368 ("GWAS_25201.sh") has been submitted
+Your job 192369 ("GWAS_25301.sh") has been submitted
+Your job 192370 ("GWAS_25401.sh") has been submitted
+Your job 192371 ("GWAS_25501.sh") has been submitted
+Your job 192372 ("GWAS_25601.sh") has been submitted
+Your job 192373 ("GWAS_25701.sh") has been submitted
+Your job 192374 ("GWAS_25801.sh") has been submitted
+Your job 192375 ("GWAS_25901.sh") has been submitted
+Your job 192376 ("GWAS_26001.sh") has been submitted
+Your job 192377 ("GWAS_26101.sh") has been submitted
+Your job 192378 ("GWAS_26201.sh") has been submitted
+Your job 192379 ("GWAS_26301.sh") has been submitted
+Your job 192380 ("GWAS_26401.sh") has been submitted
+Your job 192381 ("GWAS_26501.sh") has been submitted
+Your job 192382 ("GWAS_26601.sh") has been submitted
+Your job 192383 ("GWAS_26701.sh") has been submitted
+Your job 192384 ("GWAS_26801.sh") has been submitted
+Your job 192385 ("GWAS_26901.sh") has been submitted
+Your job 192386 ("GWAS_27001.sh") has been submitted
+Your job 192387 ("GWAS_27101.sh") has been submitted
+Your job 192388 ("GWAS_27201.sh") has been submitted
+Your job 192389 ("GWAS_27301.sh") has been submitted
+Your job 192390 ("GWAS_27401.sh") has been submitted
+Your job 192391 ("GWAS_27501.sh") has been submitted
+Your job 192392 ("GWAS_27601.sh") has been submitted
+Your job 192393 ("GWAS_27701.sh") has been submitted
+Your job 192394 ("GWAS_27801.sh") has been submitted
+Your job 192395 ("GWAS_27901.sh") has been submitted
+Your job 192396 ("GWAS_28001.sh") has been submitted
+Your job 192397 ("GWAS_28101.sh") has been submitted
+Your job 192398 ("GWAS_28201.sh") has been submitted
+Your job 192399 ("GWAS_28301.sh") has been submitted
+Your job 192400 ("GWAS_28401.sh") has been submitted
+Your job 192401 ("GWAS_28501.sh") has been submitted
+Your job 192402 ("GWAS_28601.sh") has been submitted
+Your job 192403 ("GWAS_28701.sh") has been submitted
+Your job 192404 ("GWAS_28801.sh") has been submitted
+Your job 192405 ("GWAS_28901.sh") has been submitted
+Your job 192406 ("GWAS_29001.sh") has been submitted
+Your job 192407 ("GWAS_29101.sh") has been submitted
+Your job 192408 ("GWAS_29201.sh") has been submitted
+Your job 192409 ("GWAS_29301.sh") has been submitted
+Your job 192410 ("GWAS_29401.sh") has been submitted
+Your job 192411 ("GWAS_29501.sh") has been submitted
+Your job 192412 ("GWAS_29601.sh") has been submitted
+Your job 192413 ("GWAS_29701.sh") has been submitted
+Your job 192414 ("GWAS_29801.sh") has been submitted
+Your job 192415 ("GWAS_29901.sh") has been submitted
+Your job 192416 ("GWAS_30001.sh") has been submitted
+Your job 192417 ("GWAS_30101.sh") has been submitted
+Your job 192418 ("GWAS_30201.sh") has been submitted
+Your job 192419 ("GWAS_30301.sh") has been submitted
+Your job 192420 ("GWAS_30401.sh") has been submitted
+Your job 192421 ("GWAS_30501.sh") has been submitted
+Your job 192422 ("GWAS_30601.sh") has been submitted
+Your job 192423 ("GWAS_30701.sh") has been submitted
+Your job 192424 ("GWAS_30801.sh") has been submitted
+Your job 192425 ("GWAS_30901.sh") has been submitted
+Your job 192426 ("GWAS_31001.sh") has been submitted
+Your job 192427 ("GWAS_31101.sh") has been submitted
+Your job 192428 ("GWAS_31201.sh") has been submitted
+Your job 192429 ("GWAS_31301.sh") has been submitted
+Your job 192430 ("GWAS_31401.sh") has been submitted
+Your job 192431 ("GWAS_31501.sh") has been submitted
+Your job 192432 ("GWAS_31601.sh") has been submitted
+Your job 192433 ("GWAS_31701.sh") has been submitted
+Your job 192434 ("GWAS_31801.sh") has been submitted
+Your job 192435 ("GWAS_31901.sh") has been submitted
+Your job 192436 ("GWAS_32001.sh") has been submitted
+Your job 192437 ("GWAS_32101.sh") has been submitted
+Your job 192438 ("GWAS_32201.sh") has been submitted
+Your job 192439 ("GWAS_32301.sh") has been submitted
+Your job 192440 ("GWAS_32401.sh") has been submitted
+Your job 192441 ("GWAS_32501.sh") has been submitted
+Your job 192442 ("GWAS_32601.sh") has been submitted
+Your job 192443 ("GWAS_32701.sh") has been submitted
+Your job 192444 ("GWAS_32801.sh") has been submitted
+Your job 192445 ("GWAS_32901.sh") has been submitted
+Your job 192446 ("GWAS_33001.sh") has been submitted
+Your job 192447 ("GWAS_33101.sh") has been submitted
+Your job 192448 ("GWAS_33201.sh") has been submitted
+Your job 192449 ("GWAS_33301.sh") has been submitted
+Your job 192450 ("GWAS_33401.sh") has been submitted
+Your job 192451 ("GWAS_33501.sh") has been submitted
+Your job 192452 ("GWAS_33601.sh") has been submitted
+Your job 192453 ("GWAS_33701.sh") has been submitted
+Your job 192454 ("GWAS_33801.sh") has been submitted
+Your job 192455 ("GWAS_33901.sh") has been submitted
+Your job 192456 ("GWAS_34001.sh") has been submitted
+Your job 192457 ("GWAS_34101.sh") has been submitted
+Your job 192458 ("GWAS_34201.sh") has been submitted
+Your job 192459 ("GWAS_34301.sh") has been submitted
+Your job 192460 ("GWAS_34401.sh") has been submitted
+Your job 192461 ("GWAS_34501.sh") has been submitted
+Your job 192462 ("GWAS_34601.sh") has been submitted
+Your job 192463 ("GWAS_34701.sh") has been submitted
+Your job 192464 ("GWAS_34801.sh") has been submitted
+Your job 192465 ("GWAS_34901.sh") has been submitted
+Your job 192466 ("GWAS_35001.sh") has been submitted
+Your job 192467 ("GWAS_35101.sh") has been submitted
+Your job 192468 ("GWAS_35201.sh") has been submitted
+Your job 192469 ("GWAS_35301.sh") has been submitted
+Your job 192470 ("GWAS_35401.sh") has been submitted
+Your job 192471 ("GWAS_35501.sh") has been submitted
+Your job 192472 ("GWAS_35601.sh") has been submitted
+Your job 192473 ("GWAS_35701.sh") has been submitted
+Your job 192474 ("GWAS_35801.sh") has been submitted
+Your job 192475 ("GWAS_35901.sh") has been submitted
+Your job 192476 ("GWAS_36001.sh") has been submitted
+Your job 192477 ("GWAS_36101.sh") has been submitted
+Your job 192478 ("GWAS_36201.sh") has been submitted
+Your job 192479 ("GWAS_36301.sh") has been submitted
+Your job 192480 ("GWAS_36401.sh") has been submitted
+Your job 192481 ("GWAS_36501.sh") has been submitted
+Your job 192482 ("GWAS_36601.sh") has been submitted
+Your job 192483 ("GWAS_36701.sh") has been submitted
+Your job 192484 ("GWAS_36801.sh") has been submitted
+Your job 192485 ("GWAS_36901.sh") has been submitted
+Your job 192486 ("GWAS_37001.sh") has been submitted
+Your job 192487 ("GWAS_37101.sh") has been submitted
+Your job 192488 ("GWAS_37201.sh") has been submitted
+Your job 192489 ("GWAS_37301.sh") has been submitted
+Your job 192490 ("GWAS_37401.sh") has been submitted
+Your job 192491 ("GWAS_37501.sh") has been submitted
+Your job 192492 ("GWAS_37601.sh") has been submitted
+Your job 192493 ("GWAS_37701.sh") has been submitted
+Your job 192494 ("GWAS_37801.sh") has been submitted
+Your job 192495 ("GWAS_37901.sh") has been submitted
+Your job 192496 ("GWAS_38001.sh") has been submitted
+Your job 192497 ("GWAS_38101.sh") has been submitted
+Your job 192498 ("GWAS_38201.sh") has been submitted
+Your job 192499 ("GWAS_38301.sh") has been submitted
+Your job 192500 ("GWAS_38401.sh") has been submitted
+Your job 192501 ("GWAS_38501.sh") has been submitted
+Your job 192502 ("GWAS_38601.sh") has been submitted
+Your job 192503 ("GWAS_38701.sh") has been submitted
+Your job 192504 ("GWAS_38801.sh") has been submitted
+Your job 192505 ("GWAS_38901.sh") has been submitted
+Your job 192506 ("GWAS_39001.sh") has been submitted
+Your job 192507 ("GWAS_39101.sh") has been submitted
+> 
+> proc.time()
+   user  system elapsed 
+  3.654   6.766  22.662 

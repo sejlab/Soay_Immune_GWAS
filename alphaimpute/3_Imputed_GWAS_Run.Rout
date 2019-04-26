@@ -1,0 +1,167 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> load("Imputed_GWAS.RData")
+> 
+> for(i in seq(1, nrow(full.mapfile), 100)){
++   
++   x <- readLines("3_Imputed_GWAS_Stem.R")
++   writeLines(c(paste0("startsnp = ", i), x), paste0("GWAS_", i, ".R"))
++   
++   writeLines(paste0("#!/bin/sh
++ #$ -cwd
++ #$ -l h_rt=06:00:00
++ #$ -V
++ #$ -l h_vmem=5200M
++                     
++ . /etc/profile.d/modules.sh
++ module load R
++                     
++ R CMD BATCH GWAS_", i, ".R"),
++ paste0("GWAS_", i, ".sh"))
++   
++   system(paste0("qsub GWAS_", i, ".sh"))
++ }
+Your job 5854266 ("GWAS_1.sh") has been submitted
+Your job 5854267 ("GWAS_101.sh") has been submitted
+Your job 5854268 ("GWAS_201.sh") has been submitted
+Your job 5854269 ("GWAS_301.sh") has been submitted
+Your job 5854270 ("GWAS_401.sh") has been submitted
+Your job 5854271 ("GWAS_501.sh") has been submitted
+Your job 5854272 ("GWAS_601.sh") has been submitted
+Your job 5854273 ("GWAS_701.sh") has been submitted
+Your job 5854274 ("GWAS_801.sh") has been submitted
+Your job 5854275 ("GWAS_901.sh") has been submitted
+Your job 5854276 ("GWAS_1001.sh") has been submitted
+Your job 5854277 ("GWAS_1101.sh") has been submitted
+Your job 5854278 ("GWAS_1201.sh") has been submitted
+Your job 5854279 ("GWAS_1301.sh") has been submitted
+Your job 5854280 ("GWAS_1401.sh") has been submitted
+Your job 5854281 ("GWAS_1501.sh") has been submitted
+Your job 5854282 ("GWAS_1601.sh") has been submitted
+Your job 5854283 ("GWAS_1701.sh") has been submitted
+Your job 5854284 ("GWAS_1801.sh") has been submitted
+Your job 5854285 ("GWAS_1901.sh") has been submitted
+Your job 5854286 ("GWAS_2001.sh") has been submitted
+Your job 5854287 ("GWAS_2101.sh") has been submitted
+Your job 5854288 ("GWAS_2201.sh") has been submitted
+Your job 5854289 ("GWAS_2301.sh") has been submitted
+Your job 5854290 ("GWAS_2401.sh") has been submitted
+Your job 5854291 ("GWAS_2501.sh") has been submitted
+Your job 5854292 ("GWAS_2601.sh") has been submitted
+Your job 5854293 ("GWAS_2701.sh") has been submitted
+Your job 5854294 ("GWAS_2801.sh") has been submitted
+Your job 5854295 ("GWAS_2901.sh") has been submitted
+Your job 5854296 ("GWAS_3001.sh") has been submitted
+Your job 5854297 ("GWAS_3101.sh") has been submitted
+Your job 5854298 ("GWAS_3201.sh") has been submitted
+Your job 5854299 ("GWAS_3301.sh") has been submitted
+Your job 5854300 ("GWAS_3401.sh") has been submitted
+Your job 5854301 ("GWAS_3501.sh") has been submitted
+Your job 5854302 ("GWAS_3601.sh") has been submitted
+Your job 5854303 ("GWAS_3701.sh") has been submitted
+Your job 5854304 ("GWAS_3801.sh") has been submitted
+Your job 5854305 ("GWAS_3901.sh") has been submitted
+Your job 5854306 ("GWAS_4001.sh") has been submitted
+Your job 5854307 ("GWAS_4101.sh") has been submitted
+Your job 5854308 ("GWAS_4201.sh") has been submitted
+Your job 5854309 ("GWAS_4301.sh") has been submitted
+Your job 5854310 ("GWAS_4401.sh") has been submitted
+Your job 5854311 ("GWAS_4501.sh") has been submitted
+Your job 5854312 ("GWAS_4601.sh") has been submitted
+Your job 5854313 ("GWAS_4701.sh") has been submitted
+Your job 5854314 ("GWAS_4801.sh") has been submitted
+Your job 5854315 ("GWAS_4901.sh") has been submitted
+Your job 5854316 ("GWAS_5001.sh") has been submitted
+Your job 5854317 ("GWAS_5101.sh") has been submitted
+Your job 5854318 ("GWAS_5201.sh") has been submitted
+Your job 5854319 ("GWAS_5301.sh") has been submitted
+Your job 5854320 ("GWAS_5401.sh") has been submitted
+Your job 5854321 ("GWAS_5501.sh") has been submitted
+Your job 5854322 ("GWAS_5601.sh") has been submitted
+Your job 5854323 ("GWAS_5701.sh") has been submitted
+Your job 5854324 ("GWAS_5801.sh") has been submitted
+Your job 5854325 ("GWAS_5901.sh") has been submitted
+Your job 5854326 ("GWAS_6001.sh") has been submitted
+Your job 5854327 ("GWAS_6101.sh") has been submitted
+Your job 5854328 ("GWAS_6201.sh") has been submitted
+Your job 5854329 ("GWAS_6301.sh") has been submitted
+Your job 5854330 ("GWAS_6401.sh") has been submitted
+Your job 5854331 ("GWAS_6501.sh") has been submitted
+Your job 5854332 ("GWAS_6601.sh") has been submitted
+Your job 5854333 ("GWAS_6701.sh") has been submitted
+Your job 5854334 ("GWAS_6801.sh") has been submitted
+Your job 5854335 ("GWAS_6901.sh") has been submitted
+Your job 5854336 ("GWAS_7001.sh") has been submitted
+Your job 5854337 ("GWAS_7101.sh") has been submitted
+Your job 5854338 ("GWAS_7201.sh") has been submitted
+Your job 5854339 ("GWAS_7301.sh") has been submitted
+Your job 5854340 ("GWAS_7401.sh") has been submitted
+Your job 5854341 ("GWAS_7501.sh") has been submitted
+Your job 5854342 ("GWAS_7601.sh") has been submitted
+Your job 5854343 ("GWAS_7701.sh") has been submitted
+Your job 5854344 ("GWAS_7801.sh") has been submitted
+Your job 5854345 ("GWAS_7901.sh") has been submitted
+Your job 5854346 ("GWAS_8001.sh") has been submitted
+Your job 5854347 ("GWAS_8101.sh") has been submitted
+Your job 5854348 ("GWAS_8201.sh") has been submitted
+Your job 5854349 ("GWAS_8301.sh") has been submitted
+Your job 5854350 ("GWAS_8401.sh") has been submitted
+Your job 5854351 ("GWAS_8501.sh") has been submitted
+Your job 5854352 ("GWAS_8601.sh") has been submitted
+Your job 5854353 ("GWAS_8701.sh") has been submitted
+Your job 5854354 ("GWAS_8801.sh") has been submitted
+Your job 5854355 ("GWAS_8901.sh") has been submitted
+Your job 5854356 ("GWAS_9001.sh") has been submitted
+Your job 5854357 ("GWAS_9101.sh") has been submitted
+Your job 5854358 ("GWAS_9201.sh") has been submitted
+Your job 5854359 ("GWAS_9301.sh") has been submitted
+Your job 5854360 ("GWAS_9401.sh") has been submitted
+Your job 5854361 ("GWAS_9501.sh") has been submitted
+Your job 5854362 ("GWAS_9601.sh") has been submitted
+Your job 5854363 ("GWAS_9701.sh") has been submitted
+Your job 5854364 ("GWAS_9801.sh") has been submitted
+Your job 5854365 ("GWAS_9901.sh") has been submitted
+Your job 5854366 ("GWAS_10001.sh") has been submitted
+Your job 5854367 ("GWAS_10101.sh") has been submitted
+Your job 5854368 ("GWAS_10201.sh") has been submitted
+Your job 5854369 ("GWAS_10301.sh") has been submitted
+Your job 5854370 ("GWAS_10401.sh") has been submitted
+Your job 5854371 ("GWAS_10501.sh") has been submitted
+Your job 5854372 ("GWAS_10601.sh") has been submitted
+Your job 5854373 ("GWAS_10701.sh") has been submitted
+Your job 5854374 ("GWAS_10801.sh") has been submitted
+Your job 5854375 ("GWAS_10901.sh") has been submitted
+Your job 5854376 ("GWAS_11001.sh") has been submitted
+Your job 5854377 ("GWAS_11101.sh") has been submitted
+Your job 5854378 ("GWAS_11201.sh") has been submitted
+Your job 5854379 ("GWAS_11301.sh") has been submitted
+Your job 5854380 ("GWAS_11401.sh") has been submitted
+Your job 5854381 ("GWAS_11501.sh") has been submitted
+Your job 5854382 ("GWAS_11601.sh") has been submitted
+Your job 5854383 ("GWAS_11701.sh") has been submitted
+Your job 5854384 ("GWAS_11801.sh") has been submitted
+Your job 5854385 ("GWAS_11901.sh") has been submitted
+Your job 5854386 ("GWAS_12001.sh") has been submitted
+> 
+> proc.time()
+   user  system elapsed 
+  4.113   5.698  14.151 
