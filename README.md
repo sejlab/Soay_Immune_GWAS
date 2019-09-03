@@ -18,32 +18,32 @@ and use the same directory structure as outlined in the file paths below.
 
 Scripts are run in the following order:
 
-1.1_BeastAnModGRM070218.R
-1.2_Format_Results.R
-1.3_BEAST_Genetic_Correlations.R
-1.4_Parse_Genetic_Correlations.R
-brute_GWAS/2_BEAST_GWAS_Prepare.R 
-brute_GWAS/2_BEAST_GWAS_Run.R
-brute_GWAS_log_Lambs/2_BEAST_GWAS_Prepare.R 
-brute_GWAS_log_Lambs/2_BEAST_GWAS_Run.R
-2.2.2_BEAST_GWAS_Parse_BiomaRt_log_Lambs.R
-2.2_BEAST_GWAS_Parse_BiomaRt.R
-2.3_Reparse_and_format_gene_GO_tables.R
-3.1_Imputation_in_Sig_Regions.R
-3.1_Imputation_in_Sig_Regions_log_Lambs.R
-alphaimpute/3_Imputed_GWAS_Prepare.R
-alphaimpute/3_Imputed_GWAS_Run.R
-alphaimpute/3_Imputed_GWAS_Run_log_Lambs.R
-3.2_Parse_Genotypes_Prepare_for_GWAS.R
-3.2_Parse_Genotypes_Prepare_for_GWAS_log_Lambs.R
-3.3_Parse_Alphaimpute_GWAS.R
-3.3_Parse_Alphaimpute_GWAS_log_Lambs.R
-4_Examine_GWAS_Results_LD_Genes.R 
-5_Variance_Attributed_to_Regions.R
-6_BiomaRt_SNP_functions.R
-6_BLAST_MHC_with_Rambouillet_Genome.R
-7_Sex_Specific_Effects_v1.R
-7_SNP_Effects.R
+* 1.1_BeastAnModGRM070218.R
+* 1.2_Format_Results.R
+* 1.3_BEAST_Genetic_Correlations.R
+* 1.4_Parse_Genetic_Correlations.R
+* brute_GWAS/2_BEAST_GWAS_Prepare.R 
+* brute_GWAS/2_BEAST_GWAS_Run.R
+* brute_GWAS_log_Lambs/2_BEAST_GWAS_Prepare.R 
+* brute_GWAS_log_Lambs/2_BEAST_GWAS_Run.R
+* 2.2.2_BEAST_GWAS_Parse_BiomaRt_log_Lambs.R
+* 2.2_BEAST_GWAS_Parse_BiomaRt.R
+* 2.3_Reparse_and_format_gene_GO_tables.R
+* 3.1_Imputation_in_Sig_Regions.R
+* 3.1_Imputation_in_Sig_Regions_log_Lambs.R
+* alphaimpute/3_Imputed_GWAS_Prepare.R
+* alphaimpute/3_Imputed_GWAS_Run.R
+* alphaimpute/3_Imputed_GWAS_Run_log_Lambs.R
+* 3.2_Parse_Genotypes_Prepare_for_GWAS.R
+* 3.2_Parse_Genotypes_Prepare_for_GWAS_log_Lambs.R
+* 3.3_Parse_Alphaimpute_GWAS.R
+* 3.3_Parse_Alphaimpute_GWAS_log_Lambs.R
+* 4_Examine_GWAS_Results_LD_Genes.R 
+* 5_Variance_Attributed_to_Regions.R
+* 6_BiomaRt_SNP_functions.R
+* 6_BLAST_MHC_with_Rambouillet_Genome.R
+* 7_Sex_Specific_Effects_v1.R
+* 7_SNP_Effects.R
 
 The data files are archived on the Dryad repository and are described as follows:
 [ LINK WILL BE UPDATED ]
