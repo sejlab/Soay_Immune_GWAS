@@ -1,7 +1,8 @@
 #  ------------------------------------------------------------------------
 # Beast QG MS
-# Animal models for iga, ige, igg across all ages, lambs, adults
-# AMS - 07/02/18
+# Genetic correlations for iga, ige, igg across all ages, lambs, adults
+# AMS, SEJ
+# July 2019
 #  ------------------------------------------------------------------------
 
 
@@ -127,13 +128,4 @@ for(i in 1:nrow(x1)){
   gc()
 }
 
-# 
-# 
-# fit1 <- asreml(fixed  = cbind(Lamb.IgAmp,Lamb.IgEmp) ~ trait+trait:Sex+trait:LambAgeAugust,
-#                random=~corgh(trait):giv(ID),
-#                rcov   = ~ units:idh(trait, init = NA),
-#                data = BEASTX,
-#                ginverse = list(ID = grminv),
-#                workspace = 500e+6, pworkspace = 500e+6,
-#                maxiter = 100, na.method.Y = "include", na.method.X = "include")
-# 
+

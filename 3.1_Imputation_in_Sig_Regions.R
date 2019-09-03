@@ -24,13 +24,13 @@ if(prepareRun == TRUE){
   head(pedigree)
   
   pedigree[is.na(pedigree)] <- 0
-  pedigree$MOTHER[which(pedigree$ID == 46)] <- 0
+  pedigree$MOTHER[which(pedigree$ID == 126)] <- 0
   
   write.table(pedigree[,c("ID", "FATHER", "MOTHER")], "alphaimpute/pedigree.txt", row.names = F, col.names = F, quote = F)
   
   #~~ Format the HD file
   
-  system("plink --file data/20140214_SheepHD_QC1_Polym --sheep --make-just-fam --out data/20140214_SheepHD_QC1_Polym")
+  system("plink --bfile data/20140214_SheepHD_QC1_Polym --sheep --recode --out data/20140214_SheepHD_QC1_Polym")
   
   HDfam <- read.table("data/20140214_SheepHD_QC1_Polym.fam")
   names(HDfam)[c(1, 3:6)] <- paste0(names(HDfam)[c(1, 3:6)], ".HD")

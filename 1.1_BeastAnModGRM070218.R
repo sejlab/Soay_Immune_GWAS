@@ -143,7 +143,7 @@ write.table(ped.results.ranef, "results/1_Pedigree_Ranef_Results.txt", row.names
 rm(models, i)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# 2. Make model structures & run with GRM    #
+# 2. Make model structures & run with GRM         #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 models <- data.frame(Model = c("1+Sex+LambAgeAugust,random=~giv(ID)+MumID+BirthYearF+RunDate+Plate",
@@ -164,7 +164,7 @@ for(i in 1:3) models[,i] <- as.character(models[,i])
 grm.results.ranef <- NULL
 grm.results.fixef <- NULL
 
-Run.GRM.Models <- FALSE
+Run.GRM.Models <- TRUE
 
 for(i in 1:nrow(models)){
   

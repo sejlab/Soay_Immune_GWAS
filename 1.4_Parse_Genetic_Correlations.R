@@ -1,3 +1,9 @@
+#
+# Parse genetic correlations
+# SEJ, AMS
+# July 2019
+#
+
 library(ggplot2)
 library(plyr)
 
