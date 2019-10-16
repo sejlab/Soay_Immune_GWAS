@@ -13,7 +13,7 @@ In press at PLoS Genetics. For preprint see:  https://www.biorxiv.org/content/10
 For questions related specifically to these scripts and dataset, please contact Susan
 Johnston (Susan.Johnston@ed.ac.uk) or Alexandra Sparks (A.M.Sparks@leeds.ac.uk).
 
-All analysis scripts are provided atin this repository and use the same directory structure as outlined in the file paths below. 
+All analysis scripts are provided in this repository and use the same directory structure as outlined in the file paths below. 
 
 Scripts are run in the following order:
 
@@ -44,8 +44,7 @@ Scripts are run in the following order:
 * 7_Sex_Specific_Effects_v1.R
 * 7_SNP_Effects.R
 
-The data files are archived on the Dryad repository and are described as follows:
-[ LINK WILL BE UPDATED ]
+The data files are archived in a [Dryad repository](https://datadryad.org/review?doi=doi:10.5061/dryad.hs5650c) (Link will go live on publication) and are described as follows:
 
 * data/20181107_BEAST_data_formatted.RData
 
