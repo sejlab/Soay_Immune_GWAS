@@ -8,13 +8,12 @@ population of Soay sheep (Ovis aries).
 A. M. Sparks, K. Watt, R. Sinclair, J. G. Pilkington, J. M. Pemberton, 
 T. N. McNeilly, D. H. Nussey, S. E. Johnston
 
-See:  https://www.biorxiv.org/content/10.1101/628271v1
+In press at PLoS Genetics. For preprint see:  https://www.biorxiv.org/content/10.1101/628271v1
 
 For questions related specifically to these scripts and dataset, please contact Susan
 Johnston (Susan.Johnston@ed.ac.uk) or Alexandra Sparks (A.M.Sparks@leeds.ac.uk).
 
-All analysis scripts are provided at https://github.com/sejlab/Soay_Immune_GWAS 
-and use the same directory structure as outlined in the file paths below. 
+All analysis scripts are provided atin this repository and use the same directory structure as outlined in the file paths below. 
 
 Scripts are run in the following order:
 
